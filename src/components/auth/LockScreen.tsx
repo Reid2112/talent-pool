@@ -1,25 +1,25 @@
 // src/components/auth/LockScreen.tsx — 锁屏界面（§11）
 import { useState } from 'react';
-import { Lock, Fingerprint } from 'lucide-react';
+import { useNavigate } from 'react-router-dom';
+import { Lock } from 'lucide-react';
 import { PinInput } from './PinInput';
 import { useAuthStore } from '@/stores/auth.store';
-import { isBiometricSupported } from '@/services/auth/biometric';
 import { toast } from 'sonner';
 
 export function LockScreen() {
   const unlock = useAuthStore((s) => s.unlock);
-  const unlockWithBiometric = useAuthStore((s) => s.unlockWithBiometric);
+  const navigate = useNavigate();
   const [error, setError] = useState('');
 
   const handleSubmit = async (pin: string) => {
     setError('');
     const ok = await unlock(pin);
-    if (!ok) setError('PIN 码错误，请重试');
-  };
-
-  const handleBiometric = async () => {
-    const ok = await unlockWithBiometric();
-    if (!ok) toast.error('指纹验证失败');
+    if (!ok) {
+      setError('PIN 码错误，请重试');
+    } else {
+      // 解锁成功 → 跳转到首页
+      navigate('/', { replace: true });
+    }
   };
 
   return (
@@ -33,16 +33,9 @@ export function LockScreen() {
         {error && <p className="text-sm text-red-600">{error}</p>}
       </div>
       <PinInput onSubmit={handleSubmit} />
-      {isBiometricSupported() && (
-        <button onClick={handleBiometric} className="flex items-center gap-2 rounded-xl border border-slate-200 bg-white px-5 py-3 text-sm font-medium text-blue-600">
-          <Fingerprint size={20} />
-          使用指纹解锁
-        </button>
-      )}
       <button
         onClick={() => {
           if (confirm('本应用数据仅存储在您的设备上，无服务端可重置密码。\n\n如需清除 PIN 码，请在浏览器设置中清除本站点数据（localStorage + IndexedDB）。\n\n注意：这将同时删除所有候选人数据。')) {
-            // 引导用户：无法自动清除，提示手动操作
             toast.error('请在浏览器设置 → 隐私与安全 → 站点数据中清除本应用数据');
           }
         }}
