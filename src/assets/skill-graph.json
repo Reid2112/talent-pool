@@ -1,0 +1,49 @@
+{
+  "skills": {
+    "编译优化": {
+      "category": "systems",
+      "related": [
+        { "skill": "系统性能优化", "weight": 0.90, "reason": "底层功底相通，都涉及指令级优化" },
+        { "skill": "操作系统内核开发", "weight": 0.75, "reason": "都需要理解底层硬件与系统交互" },
+        { "skill": "C/C++开发", "weight": 0.95, "reason": "编译工具链的核心语言" },
+        { "skill": "AI 框架底层开发", "weight": 0.60, "reason": "计算图优化与编译优化的思想同源" },
+        { "skill": "GPU 编程", "weight": 0.55, "reason": "都涉及并行计算与硬件适配" }
+      ]
+    },
+    "Java 开发": {
+      "category": "backend",
+      "related": [
+        { "skill": "Kotlin 开发", "weight": 0.90, "reason": "JVM 生态，语法相近" },
+        { "skill": "Go 开发", "weight": 0.60, "reason": "同为后端主流语言，设计思想有交集" },
+        { "skill": "分布式系统设计", "weight": 0.75, "reason": "Java 后端常用，技能自然延伸" },
+        { "skill": "架构设计", "weight": 0.70, "reason": "Java 企业级开发的核心能力" }
+      ]
+    },
+    "React": {
+      "category": "frontend",
+      "related": [
+        { "skill": "React Native", "weight": 0.85, "reason": "同源组件模型与 JS 生态" },
+        { "skill": "Vue", "weight": 0.65, "reason": "同为声明式前端框架，概念互通" },
+        { "skill": "TypeScript", "weight": 0.80, "reason": "React 生态标配" },
+        { "skill": "前端工程化", "weight": 0.70, "reason": "大型 React 项目必备" }
+      ]
+    },
+    "机器学习": {
+      "category": "algorithm",
+      "related": [
+        { "skill": "深度学习", "weight": 0.85, "reason": "ML 的子领域，基础相通" },
+        { "skill": "推荐系统", "weight": 0.70, "reason": "ML 的典型应用" },
+        { "skill": "NLP", "weight": 0.65, "reason": "ML 在文本领域的应用" },
+        { "skill": "数据挖掘", "weight": 0.72, "reason": "方法论同源" }
+      ]
+    }
+  },
+  "categories": {
+    "backend": ["Java开发", "Go开发", "Python后端", "C++后端", "Rust开发", "Node.js开发", "PHP开发"],
+    "frontend": ["React开发", "Vue开发", "Angular开发", "小程序开发", "Flutter开发", "React Native开发"],
+    "algorithm": ["机器学习", "深度学习", "推荐系统", "NLP", "计算机视觉", "强化学习"],
+    "systems": ["操作系统内核", "编译优化", "数据库内核", "分布式存储", "高性能计算"],
+    "product": ["产品经理", "产品运营", "增长产品", "AI产品", "B端产品"],
+    "management": ["技术管理", "项目管理", "团队管理", "敏捷管理"]
+  }
+}
