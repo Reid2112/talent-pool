@@ -5,6 +5,7 @@ import path from 'node:path';
 
 // vite.config.ts — Vite + React + PWA（§12.1）
 export default defineConfig({
+  base: '/talent-pool/',
   plugins: [
     react(),
     VitePWA({

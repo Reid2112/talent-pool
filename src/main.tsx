@@ -19,7 +19,7 @@ if (Notification.permission === 'granted') {
 
 createRoot(document.getElementById('root')!).render(
   <StrictMode>
-    <BrowserRouter>
+    <BrowserRouter basename="/talent-pool">
       <App />
       <Toaster position="top-center" toastOptions={{ duration: 2500 }} />
     </BrowserRouter>
